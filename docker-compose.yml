@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    mqtt-broker:
+        build: .
+        image: sniner/mosquitto
+        restart: unless-stopped
+        environment:
+            # For persistence set to "true" and attach
+            # a volume to /mosquitto/data
+            MQTT_PERSISTENCE: "false"
+        ports:
+            - 1883:1883
+
+# vim: set et sw=2 ts=2:
